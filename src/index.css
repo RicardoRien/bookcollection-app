@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Nunito&display=swap');
+
+:root {
+  --principal: white;
+  --principal-titles: #086972;
+  --secondary: #6b4eeb;
+  --white-color: #fff;
+  --bg-color: #ffffff;
+
+  --input-border-size: 4px;
+  --input-border: #17b978;
+  --input-text: #086972;
+
+  --btn-color: #17b978;
+  --btn-color-hover: #85fa57;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', 'Montserrat';
+}
+
+body {
+  font-family: 'Nunito', 'Montserrat';
+  background: var(--bg-color);
+  color: #212121;
+  overflow-x: hidden;
+}
+
+/* Container Styles */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Add Page */
+.add-content {
+  padding: 50px 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input:focus {
+  outline: none;
+}
+
+.add-content .input-wrapper input {
+  width: 99%;
+  border-radius: 30px;
+  transition: 0.30s;
+  background-color: transparent;
+  padding: 9px;
+  border: var(--input-border-size) solid var(--input-border);
+  color: var(--input-text);
+  font-size: 1.25rem;
+  outline: none;
+}
+
+.results {
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.results li {
+  list-style: none;
+}
+
+.result-card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.btn-result {
+  padding: 9px 13px;
+  margin-right: 0.5em;
+  background-color: var(--btn-color);
+  color: var(--white-color);
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+  border: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  line-height: 1;
+  outline: none;
+}
+
+@media (max-width: 590px) {
+  .btn-result {
+    display: block;
+    margin-bottom: 3px;
+  }
+}
+
+.btn-result:hover {
+  background-color: var(--btn-color-hover);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn-result:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.result-card .cover-wrapper img,
+.filler-cover {
+  width: 76px;
+  height: 110px;
+  background-color: #dbdada;
+  border-radius: 5px;
+  margin-right: 15px;
+  display: block;
+  color: transparent;
+}
+
+.no-available {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding: 10%;
+  padding-top: 25%;
+}
+
+.result-card .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.result-card .info .title {
+  font-size: 1.25rem;
+  color: var(--principal-titles); 
+  font-weight: 600;
+  margin: 0;
+}
+
+.result-card .info .release-date {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--principal-titles); 
+  margin: 0;
+}
+
+/* Book Page */
+.book-page { padding: 30px 0; }
+
+.book-page .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.count-pill {
+  display: block;
+  background-color: var(--secondary);
+  padding: 5px 15px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: var(--principal);
+}
+
+.book-page .heading {
+  font-family: 'Montserrat', 'Nunito', 'Verdana';
+  color: var(--secondary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .book-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.book-card {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  display: block;
+}
+
+.book-card img {
+  width: 100%;
+  display: block;
+}
+
+.book-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+}
+
+.book-card:hover .overlay { border: 3px solid var(--secondary); }
+
+.book-card .inner-card-controls {
+  display: inline;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 1px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.book-card:hover .inner-card-controls { opacity: 1; }
+
+.flex-ctrl-card {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Control Buttons: delete, add, info */
+.ctrl-btn {
+  color: #fefefe;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  padding: 5px;
+  margin: 0;
+}
+
+.ctrl-btn:hover {
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.ctrl-btn:nth-child(3):hover {
+  color: red;
+}
+
+@media (max-width: 589px) {
+  .ctrl-btn {
+    font-size: 1rem;
+  }
+}
+
+.ctrl-btn-link, .ctrl-btn-link:active { color: var(--white-color); }
+
+.ctrl-btn-link:hover { 
+  color: var(--secondary);
+  transition: all 0.3s ease;
+}
+
+.book-page .no-book {
+  color: #c4c4c4;
+  font-size: 3rem;
+  text-align: center;
+}
+
+input:focus { outline: none; }
+
+/* Text Selection Color 
+-------------------------*/
+::selection {
+  background: #85fa57; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #85fa57; /* Gecko Browsers */
+}
+
+/* Scrollbar 
+-------------*/
+html {
+  --scrollbarBG: #CFD8DC;
+  --thumbBG: #90A4AE;
+}
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
