@@ -16,8 +16,8 @@ export const Add = () => {
 
         setResults(resp.items);
 
-      } catch (err) {
-          console.error(err.message);
+      } catch (error) {
+          console.log("error.message");
         };
     };
     if (query !== '') fetchData()

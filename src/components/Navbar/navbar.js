@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
+import { Button } from '../Button/button';
 import { Link } from 'react-router-dom';
 import { FiBook } from 'react-icons/fi';
 import {  HiOutlineSortDescending, HiOutlineSortAscending } from 'react-icons/hi';
-import { Button } from './button';
 import { IconContext } from 'react-icons/lib';
 
 export default function Navbar() {
